@@ -1,7 +1,7 @@
 <project>
   <modelVersion>1.0.0</modelVersion>
-  <groupId>utn-dds2019</groupId>
-  <artifactId>dds2019</artifactId>
+  <groupId>utn-ddsTP0</groupId>
+  <artifactId>ddsTP0</artifactId>
   <version>1</version>
   <build>
     <plugins>
