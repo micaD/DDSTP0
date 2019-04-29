@@ -36,14 +36,12 @@ public class GuardarropaTest {
 		Ropa zapatilla = Ropa.PIES;
 		Ropa pantalon = Ropa.PIERNAS;
 		Ropa chupin = Ropa.PIERNAS;
-		Ropa calza =Ropa.PIERNAS;
 		Ropa pulsera =Ropa.ACCESORIOS;
 		Guardarropa guardarropa = new Guardarropa();
 		guardarropa.agregarRopa(remera);
 		guardarropa.agregarRopa(zapatilla);
 		guardarropa.agregarRopa(pantalon);
 		guardarropa.agregarRopa(chupin);
-		guardarropa.agregarRopa(calza);
 		guardarropa.agregarRopa(pulsera);
 		Assert.assertTrue( guardarropa.sugerenciaValida());
 	}
@@ -60,5 +58,32 @@ public class GuardarropaTest {
 		Assert.assertTrue( guardarropa.sugerenciaValida(conjunto));
 		
 		
+	}
+	
+	@Test
+	public void testSugerenciasSon8() throws SugerenciaInvalidaException {
+		Ropa remera = Ropa.TORSO;
+		Ropa musculosa = Ropa.TORSO;
+		Ropa zapato = Ropa.PIES;
+		Ropa sandalia = Ropa.PIES;
+		Ropa jogging = Ropa.PIERNAS;
+		Ropa jeans = Ropa.PIERNAS;
+		Guardarropa guardarropa = new Guardarropa();
+		guardarropa.agregarRopa(remera);
+		guardarropa.agregarRopa(musculosa);
+		guardarropa.agregarRopa(zapato);
+		guardarropa.agregarRopa(jogging);
+		guardarropa.agregarRopa(jeans);
+		guardarropa.agregarRopa(sandalia);
+		Assert.assertEquals(8, guardarropa.sugerencia().size());
+		
+
+	}
+	@Test (expected= SugerenciaInvalidaException.class)
+	public void testSinSugerencia() throws SugerenciaInvalidaException {
+		Guardarropa guardarropa = new Guardarropa();
+		Ropa remera = Ropa.TORSO;
+		guardarropa.agregarRopa(remera);
+		guardarropa.sugerencia();
 	}
 }
